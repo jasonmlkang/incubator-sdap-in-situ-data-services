@@ -82,15 +82,15 @@ class ParquetPathsEsRetriever:
             raise ValueError(f'ES Object is not loaded')
         es_terms = []
         if self.__props.provider is not None:
-            es_terms.append({'term': {CDMSConstants.provider_col: self.__props.provider}})
+            es_terms.append({'match': {CDMSConstants.provider_col: self.__props.provider}})
         if self.__props.project is not None:
-            es_terms.append({'term': {CDMSConstants.project_col: self.__props.project}})
+            es_terms.append({'match': {CDMSConstants.project_col: self.__props.project}})
         if self.__props.platform_code is not None:
             if isinstance(self.__props.platform_code, list):
                 es_terms.append({
                     'bool': {
                         'should': [
-                            {'term': {CDMSConstants.platform_code_col: k}} for k in self.__props.platform_code
+                            {'match': {CDMSConstants.platform_code_col: k}} for k in self.__props.platform_code
                         ]
                     }
                 })
