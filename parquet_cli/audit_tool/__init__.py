@@ -13,5 +13,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from parquet_flask.aws.aws_sqs import AwsSQS
-from parquet_flask.aws.aws_sns import AwsSNS
+from parquet_cli.audit_tool.audit_tool import audit
